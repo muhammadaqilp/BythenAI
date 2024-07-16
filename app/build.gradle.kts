@@ -23,7 +23,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "API_BASE", "\"https://api.cloudinary.com/\"")
+            buildConfigField("String", "UPLOAD_PRESET", "\"ml_default\"")
+            buildConfigField("String", "API_KEY", "\"764292367668433\"")
+        }
         release {
+            buildConfigField("String", "API_BASE", "\"https://api.cloudinary.com/\"")
+            buildConfigField("String", "UPLOAD_PRESET", "\"ml_default\"")
+            buildConfigField("String", "API_KEY", "\"764292367668433\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,6 +48,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
