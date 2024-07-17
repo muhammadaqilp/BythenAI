@@ -52,3 +52,12 @@ fun Context.copyToClipboard(message: String) {
     clipboardManager.setPrimaryClip(clipData)
     this.showToastMessage("Text copied to clipboard")
 }
+
+fun Context.clearCache() {
+    val files = filesDir.listFiles()
+    if (files != null) {
+        for (file in files) {
+            file.delete()
+        }
+    }
+}

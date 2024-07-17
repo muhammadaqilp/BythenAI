@@ -29,6 +29,7 @@ import com.example.bythenai.ui.upload.screen.component.ProgressDialog
 import com.example.bythenai.ui.upload.state.UploadState
 import com.example.bythenai.utils.checknetwork.NetworkStatus
 import com.example.bythenai.utils.checknetwork.rememberConnectivityState
+import com.example.bythenai.utils.clearCache
 import com.example.bythenai.utils.copyToClipboard
 import com.example.bythenai.utils.createVideoFile
 import com.example.bythenai.utils.getUri
@@ -58,6 +59,10 @@ class UploadActivity : ComponentActivity() {
                     viewModel.updateVideoRecorded(isSuccess)
                 }
             )
+
+            LaunchedEffect(Unit) {
+                clearCache()
+            }
 
             LaunchedEffect(connection) {
                 if (connection === NetworkStatus.Unavailable) {
